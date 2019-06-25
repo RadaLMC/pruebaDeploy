@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ppad5=9(6%9ik+o#27v2x--=k$z_f9#$ndngad%o=j&(i745_s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CELERYBEAT_SCHEDULE = {
     'run-django-updater': {
@@ -33,7 +33,7 @@ CELERYBEAT_SCHEDULE = {
     },
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -58,6 +58,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 ROOT_URLCONF = 'ExamenFinalLuisCorrea.urls'
@@ -84,15 +85,22 @@ WSGI_APPLICATION = 'ExamenFinalLuisCorrea.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'EXAMENFINAL',
+#         'USER': 'root',
+#         'PASSWORD': 'cancelar',
+#         'PORT': '3306',
+#         'HOST': '127.0.0.1',
+#     }
+# }
+import dj_database_url
+from decouple import config
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'EXAMENFINAL',
-        'USER': 'root',
-        'PASSWORD': 'cancelar',
-        'PORT': '3306',
-        'HOST': '127.0.0.1',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
@@ -113,7 +121,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+LES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
