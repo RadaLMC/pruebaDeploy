@@ -15,7 +15,6 @@ fixtures==3.0.0
 flake8==3.7.7
 funcsigs==1.0.2
 functools32==3.2.3.post2
-fuzzywuzzy==0.17.0
 gunicorn==19.9.0
 heroku==0.1.4
 idna==2.6
@@ -46,14 +45,5 @@ pytz==2017.2
 reportlab==3.5.18
 requests==2.18.4
 selenium==3.141.0
-six==1.12.0
-sure==1.4.11
-testtools==2.3.0
 traceback2==1.4.0
-twain==1.0.5
-typing==3.7.4
-unittest2==1.1.0
-urllib3==1.22
-virtualenv==16.6.1
-virtualenvwrapper-win==1.2.5
 whitenoise==4.1.2
