@@ -15,7 +15,6 @@ fixtures==3.0.0
 flake8==3.7.7
 funcsigs==1.0.2
 gunicorn==19.9.0
-heroku==0.1.4
 idna==2.6
 lettuce==0.2.23
 linecache2==1.0.0
