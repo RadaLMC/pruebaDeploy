@@ -1,0 +1,23 @@
+{% extends "articulos/base.html" %}
+
+{% block titulo %}
+	Listado
+{% endblock titulo %}
+
+{% block content %}
+    <div class="container">
+		<h1>Lista de articulos</h1>
+		<button class="btn btn-primary" onclick="window.location='{% url "nuevo" %}'">Nuevo Artículo</button>
+		{% for articulo in articulos %}
+			<h3>{{articulo.nombre}}</h3>
+			<ul>
+				<li>{{articulo.descripcion}}</li>
+				<li>{{articulo.precio_unitario}}</li>
+			</ul>
+			<a href = "javascript: if(confirm('Deseas editar {{articulo}}??')) window.location='{% url "editar" pk=articulo.id %}'"> Editar</a>
+			<a href = "javascript: if(confirm('Deseas eliminar {{articulo}}??')) window.location='{% url "eliminar" pk=articulo.id %}'"> Eliminar</a>
+			<hr>
+			<br>
+		{% endfor %}
+	</div>
+{% endblock %}
