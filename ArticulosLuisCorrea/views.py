@@ -9,7 +9,7 @@ def listar(request):
 def nuevo(request):
 	if request.method == "POST":
 		form = ArticuloForm(request.POST)
-		print request.POST
+		print (request.POST)
 		if form.is_valid():
 			articulo = form.save()
 			articulo.save()
@@ -28,7 +28,7 @@ def editar(request, pk):
 	articulo = get_object_or_404(Articulo, pk = pk)
 	if request.method == "POST":
 		form = ArticuloForm(request.POST, instance = articulo)
-		print request.POST
+		print (request.POST)
 		if form.is_valid():
 			articulo = form.save()
 			articulo.save()
