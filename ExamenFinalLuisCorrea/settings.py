@@ -128,3 +128,5 @@ STATICFILES_DIRS = (
 )
 
 LES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
