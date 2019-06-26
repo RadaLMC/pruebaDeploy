@@ -48,12 +48,7 @@ INSTALLED_APPS = (
     'whitenoise.runserver_nostatic',
     'ArticulosLuisCorrea',
 )
-import whitenoise
-from whitenoise import middleware
-from whitenoise.middleware import WhiteNoiseMiddleware
-whitenoise
-middleware
-WhiteNoiseMiddleware
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,8 +58,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.WhiteNoiseMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'django.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 ROOT_URLCONF = 'ExamenFinalLuisCorrea.urls'
